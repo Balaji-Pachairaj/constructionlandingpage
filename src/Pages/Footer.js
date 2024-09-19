@@ -34,12 +34,44 @@ const Footer = () => {
                                              href="/services"
                                              className="hover:underline"
                                         >
+                                             Infrasturcture
+                                        </a>
+                                   </li>{" "}
+                                   <li>
+                                        <a
+                                             href="/services"
+                                             className="hover:underline"
+                                        >
+                                             Product
+                                        </a>
+                                   </li>
+                                   <li>
+                                        <a
+                                             href="/services"
+                                             className="hover:underline"
+                                        >
+                                             Projects
+                                        </a>
+                                   </li>
+                                   <li>
+                                        <a
+                                             href="/services"
+                                             className="hover:underline"
+                                        >
+                                             Careers
+                                        </a>
+                                   </li>
+                                   <li>
+                                        <a
+                                             href="/services"
+                                             className="hover:underline"
+                                        >
                                              Services
                                         </a>
                                    </li>
                                    <li>
                                         <a
-                                             href="/about"
+                                             href="/aboutus"
                                              className="hover:underline"
                                         >
                                              About
