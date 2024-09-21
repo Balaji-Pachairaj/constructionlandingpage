@@ -5,17 +5,18 @@ import Logo from "../Assest/images/Logo.png";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 
 const SocialMedia = ({ socialMedia = "", link = "/" }) => {
   return (
     <a
       href={link}
-      className=" w-[60px] h-[60px] rounded-[50%] bg-[#f7b71e] flex flex-row justify-center items-center  cursor-pointer "
+      className=" w-[50px] h-[50px] rounded-[50%] bg-[#f7b71e] flex flex-row justify-center items-center  cursor-pointer "
     >
-      {socialMedia === "instagram" && <FaInstagram size={26} color="white" />}
-      {socialMedia === "linkedin" && <FaLinkedinIn size={26} color="white" />}
-      {socialMedia === "twitter" && <FaTwitter size={26} color="white" />}
+      {socialMedia === "instagram" && <FaInstagram size={22} color="white" />}
+      {socialMedia === "linkedin" && <FaFacebook size={22} color="white" />}
+      {socialMedia === "twitter" && <FaTwitter size={22} color="white" />}
     </a>
   );
 };
@@ -157,7 +158,7 @@ const Navbar = () => {
     <div className=" w-full h-fit ">
       {/* First line  */}
 
-      <div className=" w-full h-[75px] flex flex-row justify-evenly bg-[#333d40] ">
+      <div className=" w-full h-[75px] flex flex-row justify-between ps-[8rem] pe-4 bg-[#333d40] ">
         {/* Logo and title  */}
         <div className=" w-fit h-full flex flex-row gap-[1rem]">
           {/* Image  */}
@@ -174,9 +175,18 @@ const Navbar = () => {
         {/* Social links  */}
         <div className="w-fit h-full flex flex-row items-center gap-[1rem]">
           {/* Social media  */}
-          <SocialMedia socialMedia={"instagram"} link="/" />
-          <SocialMedia socialMedia={"twitter"} link="/" />
-          <SocialMedia socialMedia={"linkedin"} link="/" />
+          <SocialMedia
+            socialMedia={"instagram"}
+            link="https://www.instagram.com/hpoc90"
+          />
+          <SocialMedia
+            socialMedia={"twitter"}
+            link="https://twitter.com/HPOC90"
+          />
+          <SocialMedia
+            socialMedia={"linkedin"}
+            link="https://www.facebook.com/hpoc.hpoc.31?mibextid=ZbWKwL"
+          />
         </div>
       </div>
 
