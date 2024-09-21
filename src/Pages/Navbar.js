@@ -15,7 +15,7 @@ const SocialMedia = ({ socialMedia = "", link = "/" }) => {
       className=" w-[50px] h-[50px] rounded-[50%] bg-[#f7b71e] flex flex-row justify-center items-center  cursor-pointer "
     >
       {socialMedia === "instagram" && <FaInstagram size={22} color="white" />}
-      {socialMedia === "linkedin" && <FaFacebook size={22} color="white" />}
+      {socialMedia === "facebook" && <FaFacebook size={22} color="white" />}
       {socialMedia === "twitter" && <FaTwitter size={22} color="white" />}
     </a>
   );
@@ -184,7 +184,7 @@ const Navbar = () => {
             link="https://twitter.com/HPOC90"
           />
           <SocialMedia
-            socialMedia={"linkedin"}
+            socialMedia={"facebook"}
             link="https://www.facebook.com/hpoc.hpoc.31?mibextid=ZbWKwL"
           />
         </div>
