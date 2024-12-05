@@ -3,10 +3,9 @@ import {
   FaFacebookF,
   FaTwitter,
   FaLinkedin,
-  FaInstagram,
+  FaGithub,
   FaPhoneAlt,
   FaEnvelope,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const Footer = () => {
@@ -23,36 +22,25 @@ const Footer = () => {
     let start = 0;
     const stepTime = Math.abs(Math.floor(duration / end));
     const timer = setInterval(() => {
-      if (start < end) {
-        start += 1;
-        setCount(start);
-      } else {
-        clearInterval(timer);
-      }
+      start += 1;
+      setCount(start);
+      if (start === end) clearInterval(timer);
     }, stepTime);
     return timer;
   };
 
-  const startCounting = () => {
-    if (!isScrolling) {
-      setIsScrolling(true);
-      const timers = [
-        incrementCount(setProjectsCount, 120),
-        incrementCount(setClientsCount, 200),
-        incrementCount(setPeopleCount, 50),
-        incrementCount(setContractorsCount, 30),
-      ];
-      return () => timers.forEach(clearInterval);
-    }
-  };
-
   useEffect(() => {
-    startCounting(); // Start counting on component mount
-
     const handleScroll = () => {
       const { bottom } = footerRef.current.getBoundingClientRect();
-      if (bottom <= window.innerHeight) {
-        startCounting();
+      if (bottom <= window.innerHeight && !isScrolling) {
+        setIsScrolling(true);
+        const timers = [
+          incrementCount(setProjectsCount, 120),
+          incrementCount(setClientsCount, 200),
+          incrementCount(setPeopleCount, 50),
+          incrementCount(setContractorsCount, 30),
+        ];
+        return () => timers.forEach(clearInterval);
       }
     };
 
@@ -199,20 +187,19 @@ const Footer = () => {
           <div className="h-2 w-1/3 mx-auto bg-orange-500 mb-2" />
           <div className="flex items-center mt-2">
             <FaPhoneAlt className="mr-2 text-2xl text-gray-400" />
-            <a href="tel:+918428590999" className="text-gray-400 text-lg">
-              +91 8428590999
+            <a href="tel:+1234567890" className="text-gray-400 text-lg">
+              123-456-7890
             </a>
           </div>
           <div className="flex items-center mt-2">
             <FaEnvelope className="mr-2 text-2xl text-gray-400" />
-            <a href="mailto:info@h-poc.com" className="text-gray-400 text-lg">
-              info@h-poc.com
+            <a href="mailto:info@example.com" className="text-gray-400 text-lg">
+              info@example.com
             </a>
           </div>
-          <div className="flex items-center mt-2">
-            <FaMapMarkerAlt className="mr-2 text-2xl text-gray-400" />
-            <p className="text-gray-400 text-lg">Madurai 625107,TamilNadu.</p>
-          </div>
+          <p className="text-gray-400 text-lg mt-2">
+            123 Main St, Anytown, USA
+          </p>
         </div>
 
         {/* About Us */}
@@ -231,25 +218,6 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
         </div>
-      </div>
-
-      {/* Google Maps */}
-      <div className="mb-10">
-        <h4
-          className="text-orange-500 text-2xl font-bold text-center"
-          style={{ fontFamily: "Poppins, sans-serif" }}
-        >
-          Find Us Here
-        </h4>
-        <div className="h-2 w-1/3 mx-auto bg-orange-500 mb-2" />
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15880.673021312174!2d78.1759542!3d9.9503495!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad7a0eb5d77c3d%3A0x4b49b3a95f601a2b!2s9.9503495%2C%2078.1759542!5e0!3m2!1sen!2sin!4v1632340360426!5m2!1sen!2sin"
-          width="100%"
-          height="300"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        />
       </div>
 
       {/* Newsletter and Follow Us On */}
@@ -286,7 +254,7 @@ const Footer = () => {
           {/* Follow Us On Icons */}
           <div className="flex space-x-4 mt-4">
             <a
-              href="https://www.facebook.com/hpoc.hpoc.31?mibextid=ZbWKwL"
+              href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#3b5998] hover:text-orange-400 text-3xl"
@@ -294,7 +262,7 @@ const Footer = () => {
               <FaFacebookF />
             </a>
             <a
-              href="https://x.com/HPOC90"
+              href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#1DA1F2] hover:text-orange-400 text-3xl"
@@ -315,7 +283,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-[#333] hover:text-orange-400 text-3xl"
             >
-              <FaInstagram />
+              <FaGithub />
             </a>
           </div>
         </div>
